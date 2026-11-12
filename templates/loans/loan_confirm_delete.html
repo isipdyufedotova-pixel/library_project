@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Удаление выдачи</title></head>
+<body>
+<h1>Удалить выдачу "{{ loans.book.name }} → {{ loans.reader.name }}"?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+<a href="{% url 'loan_list' %}">Вернуться к списку выдач</a>
+</body>
+</html>

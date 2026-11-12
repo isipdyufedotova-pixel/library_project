@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Издательство</title></head>
+<body>
+<h1>{% if form.instance.pk %}Редактировать издательство{% else %}Добавить издательство{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'publisher_list' %}">Вернуться к списку издательств</a>
+</body>
+</html>

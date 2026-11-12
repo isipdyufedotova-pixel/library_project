@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>{{ publishers.name }}</title></head>
+<body>
+<h1>{{ publishers.name }}</h1>
+<p>Город: {{ publishers.city }}</p>
+{% if publishers.logo %}
+    <img src="{{ publishers.logo.url }}" alt="{{ publishers.name }}" width="300">
+{% endif %}
+<br>
+<a href="{% url 'publisher_list' %}">Вернуться к списку издательств</a>
+<a href="{% url 'publisher_update' publishers.pk %}">Редактировать</a>
+<a href="{% url 'publisher_delete' publishers.pk %}">Удалить</a>
+</body>
+</html>

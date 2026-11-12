@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Отзывы</title></head>
+<body>
+<h1>Отзывы</h1>
+<ul>
+    {% for reviews in reviews %}
+        <li>
+            <b>{{ reviews.reader_name }}</b> о книге "{{ reviews.book.name }}" (Оценка: {{ reviews.rating }}/5)
+            <p>{{ reviews.text }}</p>
+            <small>Дата: {{ reviews.create_date }}</small>
+        </li>
+    {% empty %}
+        <li>Отзывов пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'book_list' %}">К списку книг</a>
+</body>
+</html>

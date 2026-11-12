@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>{{ books.name }}</title></head>
+<body>
+<h1>{{ books.name }}</h1>
+<p>{{ books.description }}</p>
+<p>Год: {{ books.year }}</p>
+<p>ISBN: {{ books.isbn }}</p>
+<p>Автор: {{ books.author.name }}</p>
+<p>Издательство: {{ books.publisher.name }}</p>
+<p>Категория: {{ books.category.name }}</p>
+<p>Доступность: {% if books.is_exists %}Да{% else %}Нет{% endif %}</p>
+{% if books.photo %}
+    <img src="{{ books.photo.url }}" alt="{{ books.name }}" width="300">
+{% endif %}
+<br>
+<a href="{% url 'book_list' %}">Вернуться к списку книг</a>
+<a href="{% url 'book_update' books.pk %}">Редактировать</a>
+<a href="{% url 'book_delete' books.pk %}">Удалить</a>
+</body>
+</html>

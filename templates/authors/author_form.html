@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Автор</title></head>
+<body>
+<h1>{% if form.instance.pk %}Редактировать автора{% else %}Добавить автора{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'author_list' %}">Вернуться к списку авторов</a>
+</body>
+</html>

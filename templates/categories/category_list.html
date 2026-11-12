@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Категории</title></head>
+<body>
+<h1>Категории</h1>
+<ul>
+    {% for categories in categories %}
+        <li>{{ categories.name }} — {{ categories.description }}</li>
+    {% empty %}
+        <li>Категорий пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'book_list' %}">К книгам</a>
+</body>

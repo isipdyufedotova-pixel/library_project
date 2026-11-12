@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Выдачи</title></head>
+<body>
+<h1>Выдачи</h1>
+<a href="{% url 'loan_create' %}">Добавить выдачу</a>
+<ul>
+    {% for loans in loans %}
+        <li>
+            {{ loans.book.name }} → {{ loans.reader.name }}
+            (выдано: {{ loans.taken_at }}, вернуть до: {{ loans.due_at }})
+            {% if loans.returned %}[возвращена]{% endif %}
+            <a href="{% url 'loan_detail' loans.pk %}">Детали</a>
+            <a href="{% url 'loan_update' loans.pk %}">Редактировать</a>
+            <a href="{% url 'loan_delete' loans.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Выдач пока нет.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

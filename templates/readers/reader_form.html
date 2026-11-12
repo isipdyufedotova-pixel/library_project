@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Читатель</title></head>
+<body>
+<h1>{% if form.instance.pk %}Редактировать читателя{% else %}Добавить читателя{% endif %}</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Сохранить</button>
+</form>
+<a href="{% url 'reader_list' %}">Вернуться к списку читателей</a>
+</body>
+</html>

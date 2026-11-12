@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>{{ authors.name }}</title></head>
+<body>
+<h1>{{ authors.name }}</h1>
+<p>{{ authors.description }}</p>
+{% if authors.photo %}
+    <img src="{{ authors.photo.url }}" alt="{{ authors.name }}" width="300">
+{% endif %}
+<br>
+<a href="{% url 'author_list' %}">Вернуться к списку авторов</a>
+<a href="{% url 'author_update' authors.pk %}">Редактировать</a>
+<a href="{% url 'author_delete' authors.pk %}">Удалить</a>
+</body>
+</html>

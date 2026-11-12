@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Книги</title>
+</head>
+<body>
+    <h1>Книги</h1>
+    <a href="{% url 'book_create' %}">Добавить новую книгу</a>
+    <ul>
+        {% for books in books %}
+            <li>
+                {% if books.photo %}
+                    <img src="{{ books.photo.url }}" width="80">
+                {% endif %}
+                <a href="{% url 'book_detail' books.pk %}">{{ books.name }}</a>
+                <a href="{% url 'book_update' books.pk %}">Редактировать</a>
+                <a href="{% url 'book_delete' books.pk %}">Удалить</a>
+            </li>
+        {% empty %}
+            <li>Книг пока нет.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

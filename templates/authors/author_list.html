@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Авторы</title></head>
+<body>
+<h1>Авторы</h1>
+<a href="{% url 'author_create' %}">Добавить автора</a>
+<ul>
+    {% for authors in authors %}
+        <li>
+            {% if authors.photo %}
+                <img src="{{ authors.photo.url }}" alt="{{ authors.name }}" width="80">
+            {% endif %}
+            <a href="{% url 'author_detail' authors.pk %}">{{ authors.name }}</a>
+            <a href="{% url 'author_update' authors.pk %}">Редактировать</a>
+            <a href="{% url 'author_delete' authors.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Авторов пока нет.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>{{ readers.name }}</title></head>
+<body>
+<h1>{{ readers.name }}</h1>
+<p>Номер билета: {{ readers.ticket_number }}</p>
+<p>Факультет: {{ readers.faculty.name }}</p>
+{% if readers.photo %}
+    <img src="{{ readers.photo.url }}" alt="{{ readers.name }}" width="300">
+{% endif %}
+<br>
+<a href="{% url 'reader_list' %}">Вернуться к списку читателей</a>
+<a href="{% url 'reader_update' readers.pk %}">Редактировать</a>
+<a href="{% url 'reader_delete' readers.pk %}">Удалить</a>
+</body>
+</html>

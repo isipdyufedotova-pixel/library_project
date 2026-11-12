@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Удаление автора</title></head>
+<body>
+<h1>Удалить автора "{{ authors.name }}"?</h1>
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Удалить</button>
+</form>
+<a href="{% url 'author_list' %}">Вернуться к списку авторов</a>
+</body>
+</html>

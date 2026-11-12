@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Факультеты</title></head>
+<body>
+<h1>Факультеты</h1>
+<ul>
+    {% for faculties in faculties %}
+        <li>{{ faculties.name }}</li>
+    {% empty %}
+        <li>Факультетов пока нет.</li>
+    {% endfor %}
+</ul>
+<a href="{% url 'book_list' %}">К списку книг</a>
+</body>
+</html>

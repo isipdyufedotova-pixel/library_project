@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head><meta charset="UTF-8"><title>Издательства</title></head>
+<body>
+<h1>Издательства</h1>
+<a href="{% url 'publisher_create' %}">Добавить издательство</a>
+<ul>
+    {% for publishers in publishers %}
+        <li>
+            {% if publishers.logo %}
+                <img src="{{ publishers.logo.url }}" alt="{{ publishers.name }}" width="80">
+            {% endif %}
+            <a href="{% url 'publisher_detail' publishers.pk %}">{{ publishers.name }}</a>
+            <a href="{% url 'publisher_update' publishers.pk %}">Редактировать</a>
+            <a href="{% url 'publisher_delete' publishers.pk %}">Удалить</a>
+        </li>
+    {% empty %}
+        <li>Издательств пока нет.</li>
+    {% endfor %}
+</ul>
+</body>
+</html>
